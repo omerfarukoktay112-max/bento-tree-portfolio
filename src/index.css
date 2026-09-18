@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@theme {
+  --color-surface: #0d0e12;
+  --color-surface-2: #14151b;
+  --color-surface-3: #1b1c24;
+}
+
+html,
+body {
+  margin: 0;
+  background: var(--color-surface);
+  color: #e5e7eb;
+}
+
+#root {
+  min-height: 100svh;
+}
