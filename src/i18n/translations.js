@@ -55,10 +55,15 @@ export const translations = {
           period: '2024 – Temmuz 2026 · Mezun',
         },
       ],
-      certificates: [
-        { name: 'Sıfırdan Unreal Engine 5 ve Blueprint Eğitimi', issuer: 'Udemy', date: 'Ekim 2026' },
-        { name: 'Sıfırdan Zirveye Web Tasarım: Komple Frontend Eğitimi', issuer: 'Udemy', date: 'Ekim 2026' },
-      ],
+      certificates: {
+        kotlin: { name: 'Android Mobil Uygulama Geliştirme Eğitimi | Kotlin', date: 'Ekim 2026' },
+        chatgpt: { name: 'ChatGPT', date: 'Ekim 2026' },
+        claude: { name: 'Anthropic Claude', date: 'Ekim 2026' },
+        unreal: { name: 'Sıfırdan Unreal Engine 5 ve Blueprint Eğitimi', date: 'Eylül 2026' },
+        frontend: { name: 'Sıfırdan Zirveye Web Tasarım | Komple Frontend Eğitimi', date: 'Eylül 2026' },
+      },
+      hours: 'saat',
+      verify: 'Sertifikayı gör',
       spokenLanguages: [
         { name: 'Türkçe', level: 'Ana dil' },
         { name: 'İngilizce', level: 'A2' },
@@ -209,10 +214,15 @@ export const translations = {
           period: '2024 – July 2026 · Graduated',
         },
       ],
-      certificates: [
-        { name: 'Unreal Engine 5 and Blueprint from Scratch', issuer: 'Udemy', date: 'October 2026' },
-        { name: 'Complete Front-End Web Design Course (HTML, CSS, JavaScript)', issuer: 'Udemy', date: 'October 2026' },
-      ],
+      certificates: {
+        kotlin: { name: 'Android Mobile App Development | Kotlin', date: 'October 2026' },
+        chatgpt: { name: 'ChatGPT', date: 'October 2026' },
+        claude: { name: 'Anthropic Claude', date: 'October 2026' },
+        unreal: { name: 'Unreal Engine 5 and Blueprint from Scratch', date: 'September 2026' },
+        frontend: { name: 'Complete Front-End Web Design Course (HTML, CSS, JavaScript)', date: 'September 2026' },
+      },
+      hours: 'hours',
+      verify: 'View certificate',
       spokenLanguages: [
         { name: 'Turkish', level: 'Native' },
         { name: 'English', level: 'A2' },
@@ -363,10 +373,15 @@ export const translations = {
           period: '2024 – Juli 2026 · Abgeschlossen',
         },
       ],
-      certificates: [
-        { name: 'Unreal Engine 5 und Blueprint von Grund auf', issuer: 'Udemy', date: 'Oktober 2026' },
-        { name: 'Kompletter Front-End-Webdesign-Kurs (HTML, CSS, JavaScript)', issuer: 'Udemy', date: 'Oktober 2026' },
-      ],
+      certificates: {
+        kotlin: { name: 'Android-App-Entwicklung | Kotlin', date: 'Oktober 2026' },
+        chatgpt: { name: 'ChatGPT', date: 'Oktober 2026' },
+        claude: { name: 'Anthropic Claude', date: 'Oktober 2026' },
+        unreal: { name: 'Unreal Engine 5 und Blueprint von Grund auf', date: 'September 2026' },
+        frontend: { name: 'Kompletter Front-End-Webdesign-Kurs (HTML, CSS, JavaScript)', date: 'September 2026' },
+      },
+      hours: 'Std.',
+      verify: 'Zertifikat ansehen',
       spokenLanguages: [
         { name: 'Türkisch', level: 'Muttersprache' },
         { name: 'Englisch', level: 'A2' },

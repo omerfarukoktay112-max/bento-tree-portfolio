@@ -1,7 +1,8 @@
-import { Award, Briefcase, GraduationCap, Languages } from 'lucide-react'
+import { Award, Briefcase, ExternalLink, GraduationCap, Languages } from 'lucide-react'
 import { BentoCard } from './BentoCard'
 import { SkillsCard } from './SkillsCard'
 import { useLanguage } from '../context/language'
+import { certificates } from '../data/certificates'
 
 function Block({ icon: Icon, title, children }) {
   return (
@@ -16,7 +17,7 @@ function Block({ icon: Icon, title, children }) {
 }
 
 export function AboutSection() {
-  const { t } = useLanguage()
+  const { t, lang } = useLanguage()
   const { about } = t
 
   return (
@@ -51,12 +52,26 @@ export function AboutSection() {
         </Block>
 
         <Block icon={Award} title={about.certificatesTitle}>
-          <ul className="flex flex-col gap-2">
-            {about.certificates.map((cert) => (
-              <li key={cert.name}>
-                <p className="text-sm text-white/85">{cert.name}</p>
-                <p className="text-xs text-white/50">
-                  {cert.issuer} · {cert.date}
+          <ul className="flex flex-col gap-3">
+            {certificates.map((cert) => (
+              <li key={cert.id}>
+                <p className="text-sm text-white/85">{about.certificates[cert.id].name}</p>
+                <p className="flex flex-wrap items-center gap-x-1.5 text-xs text-white/50">
+                  <span>
+                    {cert.issuer} · {about.certificates[cert.id].date}
+                    {cert.hours && ` · ${cert.hours.toLocaleString(lang)} ${about.hours}`}
+                  </span>
+                  {cert.url && (
+                    <a
+                      href={cert.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex items-center gap-1 rounded text-fuchsia-300/80 outline-none transition hover:text-fuchsia-200 focus-visible:ring-2 focus-visible:ring-fuchsia-400/60"
+                    >
+                      · {about.verify}
+                      <ExternalLink size={11} />
+                    </a>
+                  )}
                 </p>
               </li>
             ))}
