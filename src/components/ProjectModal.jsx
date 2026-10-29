@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { ExternalLink, X } from 'lucide-react'
+import { X } from 'lucide-react'
+import { ProjectLinks } from './ProjectLinks'
 import { useLanguage } from '../context/language'
 
 export function ProjectModal({ project, onClose }) {
@@ -99,20 +100,7 @@ export function ProjectModal({ project, onClose }) {
               </div>
             </div>
 
-            <div className="mt-6 flex flex-col gap-2">
-              {project.links.map((link) => (
-                <a
-                  key={link.url}
-                  href={link.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex items-center justify-center gap-2 rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/80 outline-none transition hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-fuchsia-400/60"
-                >
-                  {link.type === 'itch' ? t.ui.viewOnItch : t.ui.viewOnGithub}
-                  <ExternalLink size={14} />
-                </a>
-              ))}
-            </div>
+            <ProjectLinks links={project.links} className="mt-6" />
           </motion.div>
         </motion.div>
       )}

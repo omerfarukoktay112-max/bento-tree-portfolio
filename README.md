@@ -2,9 +2,10 @@
 
 **Live:** https://omerfarukoktay112-max.github.io/bento-tree-portfolio/
 
-A dark, glassy portfolio site that grows like a tree: a profile card takes root
-in the center, and wavy SVG branches reach out to project, skill, and contact
-cards on either side. Games on the left branch, apps on the right.
+A dark, glassy portfolio site. The landing screen grows like a tree: a profile
+card takes root in the center and wavy SVG branches reach out to the featured
+game, featured app, stats and links. Below it: Games, Apps, About (experience,
+education, certificates, skills) and Contact sections.
 
 ## 🎮 Featured work
 
@@ -18,16 +19,20 @@ Halloween: The Monster Market · Win Garden · Cafe Tycoon Clicker · Waifu Blas
 
 ## ✨ Highlights
 
-- **Organic branch layout**: SVG bezier branches connect a root card to
-  surrounding cards, computed live from real DOM coordinates (no separate
-  mobile layout needed) and drawn with a growth animation on load.
+- **Organic branch hero**: SVG bezier branches connect the profile card to
+  surrounding tiles, computed live from real DOM coordinates and drawn with a
+  growth animation on load.
+- **Sticky navigation** with section anchors and a mobile menu.
 - **Data-driven**: add a project to `src/data/projects.js` (plus its text in
-  `src/i18n/translations.js`) and it gets a card and a branch automatically.
+  `src/i18n/translations.js`) and it shows up in its section automatically;
+  `featured: true` also puts it on the landing screen.
+- **Direct links on every card**: itch.io page for games, GitHub and latest
+  release download for apps.
 - **Trilingual (TR/EN/DE)**: follows the browser language on first visit,
   then remembers the visitor's choice.
 - **Downloadable CV** in Turkish and English, straight from the profile card.
-- **Generated sound design**: short hover/click tones synthesized on the fly
-  with the Web Audio API, no audio files required.
+- **Optional sound design**: short hover/click tones synthesized with the Web
+  Audio API; off by default, one click to turn on.
 - **Case-study modals**: click a project card for a problem → approach →
   outcome write-up, lazy-loaded as its own chunk.
 - **Accessible by default**: focus-visible rings, keyboard hover parity,

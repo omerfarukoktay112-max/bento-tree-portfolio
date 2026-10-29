@@ -9,9 +9,9 @@ export function LinksCard({ active }) {
   const { t } = useLanguage()
 
   return (
-    <BentoCard active={active}>
+    <BentoCard active={active} className="p-5">
       <h2 className="mb-3 text-sm font-medium text-white/80">{t.sections.links}</h2>
-      <div className="flex flex-col gap-2">
+      <div className="grid grid-cols-2 gap-2">
         {links.map((link) => {
           const Icon = ICONS[link.icon]
           return (

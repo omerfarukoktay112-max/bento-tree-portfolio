@@ -2,12 +2,13 @@
 const GITHUB = 'https://github.com/omerfarukoktay112-max'
 const ITCH = 'https://omer-faruk-oktay.itch.io'
 
-// Öne çıkan projeler: kategoriye göre ağacın sol (oyunlar) ve sağ (uygulamalar) dalına yerleşir.
+// Projeler kategoriye göre Oyunlar / Uygulamalar bölümlerinde listelenir; featured olanlar giriş ekranında da görünür.
 // Metinler (ad, açıklama, vaka çalışması) src/i18n/translations.js içinde id ile eşleşir.
 export const projects = [
   {
     id: 'monster-market',
     category: 'game',
+    featured: true,
     tech: 'Godot',
     platform: 'Windows',
     image: 'covers/halloween-the-monster-market.webp',
@@ -40,23 +41,36 @@ export const projects = [
   {
     id: 'keykeeper',
     category: 'app',
+    featured: true,
     tech: 'C# · .NET MAUI',
     platform: 'Android',
-    links: [{ type: 'github', url: `${GITHUB}/KeyKeeper` }],
+    icon: 'KeyRound',
+    links: [
+      { type: 'github', url: `${GITHUB}/KeyKeeper` },
+      { type: 'download', url: `${GITHUB}/KeyKeeper/releases/latest` },
+    ],
   },
   {
     id: 'gearfit',
     category: 'app',
     tech: 'C# · .NET MAUI',
     platform: 'Windows · Android',
-    links: [{ type: 'github', url: `${GITHUB}/GearFit` }],
+    icon: 'Dumbbell',
+    links: [
+      { type: 'github', url: `${GITHUB}/GearFit` },
+      { type: 'download', url: `${GITHUB}/GearFit/releases/latest` },
+    ],
   },
   {
     id: 'paint-for-mac',
     category: 'app',
     tech: 'Swift · SwiftUI',
     platform: 'macOS',
-    links: [{ type: 'github', url: `${GITHUB}/paint-for-mac` }],
+    icon: 'PenTool',
+    links: [
+      { type: 'github', url: `${GITHUB}/paint-for-mac` },
+      { type: 'download', url: `${GITHUB}/paint-for-mac/releases/latest` },
+    ],
   },
 ]
 

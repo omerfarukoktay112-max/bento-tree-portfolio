@@ -2,9 +2,9 @@ import { useMemo, useRef, useState } from 'react'
 import { SoundContext } from './sound'
 
 function getInitialEnabled() {
-  if (typeof window === 'undefined') return true
-  const stored = window.localStorage.getItem('portfolio-sound')
-  return stored === null ? true : stored === 'on'
+  // Varsayılan kapalı: ziyaretçi açmadıkça ses çalınmaz
+  if (typeof window === 'undefined') return false
+  return window.localStorage.getItem('portfolio-sound') === 'on'
 }
 
 export function SoundProvider({ children }) {

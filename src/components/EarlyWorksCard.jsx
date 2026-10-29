@@ -3,13 +3,14 @@ import { BentoCard } from './BentoCard'
 import { earlyWorks } from '../data/projects'
 import { useLanguage } from '../context/language'
 
-export function EarlyWorksCard({ active }) {
+export function EarlyWorksCard() {
   const { t } = useLanguage()
 
   return (
-    <BentoCard active={active}>
-      <h2 className="mb-3 text-sm font-medium text-white/80">{t.sections.earlyWorks}</h2>
-      <ul className="flex flex-col gap-1">
+    <BentoCard>
+      <h3 className="font-medium text-white">{t.sections.earlyWorks}</h3>
+      <p className="mb-3 mt-1 text-sm text-white/50">{t.sections.earlyWorksHint}</p>
+      <ul className="grid gap-1 sm:grid-cols-2 lg:grid-cols-3">
         {earlyWorks.map((work) => (
           <li key={work.url}>
             <a
