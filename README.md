@@ -1,25 +1,36 @@
 # 🌳 Bento-Tree Portfolio
 
+**Live:** https://omerfarukoktay112-max.github.io/bento-tree-portfolio/
+
 A dark, glassy portfolio site that grows like a tree: a profile card takes root
 in the center, and wavy SVG branches reach out to project, skill, and contact
-cards on either side. Built to showcase **Unity & C# game development** and
-**Kotlin / .NET MAUI mobile development** — web tech stays intentionally out
-of the spotlight.
+cards on either side. Games on the left branch, apps on the right.
+
+## 🎮 Featured work
+
+**Games (Godot, on [itch.io](https://omer-faruk-oktay.itch.io))**
+Halloween: The Monster Market · Win Garden · Cafe Tycoon Clicker · Waifu Blast
+
+**Apps**
+[KeyKeeper](https://github.com/omerfarukoktay112-max/KeyKeeper) (.NET MAUI, Android) ·
+[GearFit](https://github.com/omerfarukoktay112-max/GearFit) (.NET MAUI, Windows/Android) ·
+[Paint for Mac](https://github.com/omerfarukoktay112-max/paint-for-mac) (Swift, macOS)
 
 ## ✨ Highlights
 
-- **Organic branch layout** — SVG bezier branches connect a root card to
+- **Organic branch layout**: SVG bezier branches connect a root card to
   surrounding cards, computed live from real DOM coordinates (no separate
   mobile layout needed) and drawn with a growth animation on load.
-- **Real project data** — cards link to actual GitHub repositories, with
-  live star/commit counts pulled from the GitHub API.
-- **Trilingual (TR/EN/DE)** — instant language switching with a persisted
-  preference.
-- **Generated sound design** — short hover/click tones synthesized on the fly
+- **Data-driven**: add a project to `src/data/projects.js` (plus its text in
+  `src/i18n/translations.js`) and it gets a card and a branch automatically.
+- **Trilingual (TR/EN/DE)**: follows the browser language on first visit,
+  then remembers the visitor's choice.
+- **Downloadable CV** in Turkish and English, straight from the profile card.
+- **Generated sound design**: short hover/click tones synthesized on the fly
   with the Web Audio API, no audio files required.
-- **Case-study modals** — click a project card for a problem → approach →
-  outcome narrative, lazy-loaded as its own chunk.
-- **Accessible by default** — focus-visible rings, keyboard hover parity,
+- **Case-study modals**: click a project card for a problem → approach →
+  outcome write-up, lazy-loaded as its own chunk.
+- **Accessible by default**: focus-visible rings, keyboard hover parity,
   dynamic `<html lang>`, and solid text contrast.
 
 ## 🛠 Tech Stack

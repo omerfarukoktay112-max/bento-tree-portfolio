@@ -3,14 +3,20 @@ import { RootCard } from './components/RootCard'
 import { ProjectCard } from './components/ProjectCard'
 import { SkillsCard } from './components/SkillsCard'
 import { LinksCard } from './components/LinksCard'
+import { EarlyWorksCard } from './components/EarlyWorksCard'
 import { BranchLayer } from './components/BranchLayer'
 import { LanguageSwitcher } from './components/LanguageSwitcher'
 import { SoundToggle } from './components/SoundToggle'
 import { useBranchPoints } from './hooks/useBranchPoints'
+import { useLanguage } from './context/language'
 import { projects } from './data/projects'
 import { cn } from './lib/cn'
 
-const NODE_IDS = ['lotto-game', 'arena-battle', 'fitstep', 'skills', 'links']
+// Sol dal: oyunlar, sağ dal: uygulamalar. Yeni proje eklemek için data/projects.js yeterli.
+const games = projects.filter((project) => project.category === 'game')
+const apps = projects.filter((project) => project.category === 'app')
+
+const NODE_IDS = [...projects.map((project) => project.id), 'early-works', 'skills', 'links']
 
 const ProjectModal = lazy(() =>
   import('./components/ProjectModal').then((module) => ({ default: module.ProjectModal })),
@@ -20,6 +26,7 @@ function App() {
   const [hoveredId, setHoveredId] = useState(null)
   const [activeProject, setActiveProject] = useState(null)
   const [modalEverOpened, setModalEverOpened] = useState(false)
+  const { t } = useLanguage()
   const { containerRef, rootRef, registerNode, points } = useBranchPoints(NODE_IDS)
 
   const openProject = (project) => {
@@ -36,7 +43,15 @@ function App() {
     onBlur: () => setHoveredId((current) => (current === id ? null : current)),
   })
 
-  const projectById = (id) => projects.find((project) => project.id === id)
+  const renderProject = (project) => (
+    <div key={project.id} {...nodeProps(project.id)}>
+      <ProjectCard project={project} active={hoveredId === project.id} onOpen={openProject} />
+    </div>
+  )
+
+  const columnLabel = (label) => (
+    <h2 className="px-1 text-xs font-medium uppercase tracking-widest text-fuchsia-300/80">{label}</h2>
+  )
 
   return (
     <div className="relative min-h-svh overflow-hidden bg-surface px-4 py-10 md:px-10">
@@ -63,35 +78,21 @@ function App() {
       >
         <BranchLayer root={points.root} nodes={points.nodes} hoveredId={hoveredId} />
 
-        <div className="flex w-full flex-col gap-4 md:w-72 md:justify-center">
-          <div {...nodeProps('lotto-game')}>
-            <ProjectCard
-              project={projectById('lotto-game')}
-              active={hoveredId === 'lotto-game'}
-              onOpen={openProject}
-            />
-          </div>
-          <div {...nodeProps('arena-battle')}>
-            <ProjectCard
-              project={projectById('arena-battle')}
-              active={hoveredId === 'arena-battle'}
-              onOpen={openProject}
-            />
+        <div className="order-2 flex w-full flex-col gap-4 md:order-none md:w-72 md:justify-center">
+          {columnLabel(t.sections.games)}
+          {games.map(renderProject)}
+          <div {...nodeProps('early-works')}>
+            <EarlyWorksCard active={hoveredId === 'early-works'} />
           </div>
         </div>
 
-        <div ref={rootRef} className="relative z-10 w-full shrink-0 md:w-80">
+        <div ref={rootRef} className="relative z-10 order-1 w-full shrink-0 md:order-none md:w-80">
           <RootCard />
         </div>
 
-        <div className="flex w-full flex-col gap-4 md:w-72 md:justify-center">
-          <div {...nodeProps('fitstep')}>
-            <ProjectCard
-              project={projectById('fitstep')}
-              active={hoveredId === 'fitstep'}
-              onOpen={openProject}
-            />
-          </div>
+        <div className="order-3 flex w-full flex-col gap-4 md:order-none md:w-72 md:justify-center">
+          {columnLabel(t.sections.apps)}
+          {apps.map(renderProject)}
           <div {...nodeProps('skills')}>
             <SkillsCard active={hoveredId === 'skills'} />
           </div>

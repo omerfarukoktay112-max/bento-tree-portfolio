@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { cn } from '../lib/cn'
-import { useSound } from '../context/SoundContext'
+import { useSound } from '../context/sound'
 
 export function BentoCard({ className, active, children }) {
   const { playHover } = useSound()

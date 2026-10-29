@@ -1,5 +1,5 @@
 import { languages } from '../i18n/translations'
-import { useLanguage } from '../context/LanguageContext'
+import { useLanguage } from '../context/language'
 import { cn } from '../lib/cn'
 
 const LABELS = { tr: 'TR', en: 'EN', de: 'DE' }

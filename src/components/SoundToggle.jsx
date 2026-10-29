@@ -1,5 +1,5 @@
 import { Volume2, VolumeX } from 'lucide-react'
-import { useSound } from '../context/SoundContext'
+import { useSound } from '../context/sound'
 
 export function SoundToggle() {
   const { enabled, toggle } = useSound()

@@ -1,6 +1,6 @@
 import { BentoCard } from './BentoCard'
 import { skills } from '../data/skills'
-import { useLanguage } from '../context/LanguageContext'
+import { useLanguage } from '../context/language'
 import { cn } from '../lib/cn'
 
 export function SkillsCard({ active }) {

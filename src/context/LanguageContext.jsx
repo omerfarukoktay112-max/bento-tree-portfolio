@@ -1,12 +1,14 @@
-import { createContext, useContext, useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { languages, translations } from '../i18n/translations'
-
-const LanguageContext = createContext(null)
+import { LanguageContext } from './language'
 
 function getInitialLanguage() {
   if (typeof window === 'undefined') return 'en'
   const stored = window.localStorage.getItem('portfolio-lang')
-  return languages.includes(stored) ? stored : 'en'
+  if (languages.includes(stored)) return stored
+  // Kayıtlı tercih yoksa tarayıcı dilini kullan
+  const browser = (window.navigator.language || '').slice(0, 2).toLowerCase()
+  return languages.includes(browser) ? browser : 'en'
 }
 
 export function LanguageProvider({ children }) {
@@ -34,10 +36,4 @@ export function LanguageProvider({ children }) {
   )
 
   return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>
-}
-
-export function useLanguage() {
-  const ctx = useContext(LanguageContext)
-  if (!ctx) throw new Error('useLanguage must be used within a LanguageProvider')
-  return ctx
 }

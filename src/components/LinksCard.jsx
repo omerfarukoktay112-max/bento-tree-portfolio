@@ -1,9 +1,9 @@
-import { Code2, Users, Mail, ArrowUpRight } from 'lucide-react'
+import { Code2, Gamepad2, Users, Mail, ArrowUpRight } from 'lucide-react'
 import { BentoCard } from './BentoCard'
 import { links } from '../data/links'
-import { useLanguage } from '../context/LanguageContext'
+import { useLanguage } from '../context/language'
 
-const ICONS = { Code2, Users, Mail }
+const ICONS = { Code2, Gamepad2, Users, Mail }
 
 export function LinksCard({ active }) {
   const { t } = useLanguage()

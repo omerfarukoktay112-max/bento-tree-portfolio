@@ -1,6 +1,5 @@
-import { createContext, useContext, useMemo, useRef, useState } from 'react'
-
-const SoundContext = createContext(null)
+import { useMemo, useRef, useState } from 'react'
+import { SoundContext } from './sound'
 
 function getInitialEnabled() {
   if (typeof window === 'undefined') return true
@@ -61,10 +60,4 @@ export function SoundProvider({ children }) {
   }, [enabled])
 
   return <SoundContext.Provider value={value}>{children}</SoundContext.Provider>
-}
-
-export function useSound() {
-  const ctx = useContext(SoundContext)
-  if (!ctx) throw new Error('useSound must be used within a SoundProvider')
-  return ctx
 }
